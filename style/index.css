@@ -1,0 +1,81 @@
+@import url("page.css");
+
+:root {
+  --main-width: 40rem;
+  --aside-width: 20rem;
+}
+
+.page-content-wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "mc"
+    "rs"
+}
+
+.page-content-wrapper > * {
+  padding: 1em;
+  box-sizing: border-box;
+  justify-self: center;
+}
+
+.main-content {
+    max-width: var(--main-width);
+    grid-area: mc;
+}
+
+.right-sidebar {
+  grid-area: rs;
+  max-width: var(--aside-width);
+}
+
+.main-imgs {
+  max-width: 100%;
+}
+
+.main-content article header h2 {
+  text-align: center;
+}
+
+.main-content article section {
+  margin: 2em 0 2em 0;
+}
+
+.guides header h2 {
+  text-align: center;
+}
+
+.guide {
+  display: block;
+  margin: 0 0 2em 0;
+  border-bottom: 2px solid black;
+  box-sizing: border-box;
+}
+
+.guide-name {
+  font-weight: bold;
+}
+
+.guide > img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 18px;
+  }
+
+  .page-content-wrapper {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr var(--aside-width);
+
+    grid-template-areas:
+      "mc rs"
+  }
+
+  .right-sidebar {
+    margin-right: 1rem;
+  }
+}

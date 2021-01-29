@@ -1,0 +1,187 @@
+/* FIXME: Knappene (og trolig mer) er ikke dynamisk nok.
+          Hvis bruker øker skrift-størrelse, eller potensielt
+          har en annen font, så er det risiko for at knappene går utenfor
+          skjermen ved lavere skjerm-bredder. */
+
+:root {
+  /* Color Scheme: https://colorhunt.co/palette/226680 */
+  --white: #fcf8ec;
+  --lightblue: #d0e8f2;
+  --blue: #79a3b1;
+  --darkblue: #456268;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.75rem;
+}
+
+.full-text {
+  display: none;
+}
+
+.page-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "ph"
+    "pw"
+    "pf";
+}
+
+/* Header */
+.page-header {
+  grid-area: "ph";
+  background-color: var(--lightblue);
+
+  display: grid;
+  grid-template-areas:
+    "hl"
+    "hn";
+}
+
+.logo-wrapper {
+  grid-area: hl;
+  justify-self: center;
+
+  margin-top: .5rem;
+
+  background: var(--lightblue);
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.main-nav {
+  grid-area: hn;
+  justify-self: center;
+}
+
+.main-menu {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.main-menu li a {
+  display: block;
+
+  margin: .5rem;
+  padding: .5rem .5rem;
+  border: 2px solid;
+  border-radius: 1rem;
+
+  font-weight: bold;
+  text-decoration: none;
+
+  color: black;
+}
+
+.main-menu li a:hover {
+  background-color: var(--white);
+}
+
+.main-menu li a:active {
+  background-color: var(--blue);
+}
+
+/* Page-contet */
+.page-content-wrapper {
+  grid-area: "pf";
+  background-color: var(--white);
+}
+
+/* Footer */
+.page-footer {
+  grid-area: "ph";
+
+  color: var(--white);
+  background-color: var(--darkblue);
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media-links {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icon {
+  max-width: 40px;
+  margin: 0 1rem 1rem;
+}
+
+/* Adjust main-menu's text-length & padding */
+@media (min-width: 450px) {
+  .short-text {
+    display: none;
+  }
+
+  .full-text {
+    display: inline;
+  }
+
+  .main-menu li a {
+    padding: .5rem 1rem;
+  }
+}
+
+/* Restructure header */
+@media (min-width: 600px) {
+  .page-header {
+    display: grid;
+    grid-template-areas:
+      "hl hn";
+
+    margin: 0;
+  }
+
+  .logo-wrapper {
+    justify-self: start;
+    align-self: center;
+
+    margin-top: 0;
+    margin-left: .5rem;
+
+  }
+
+  .main-nav {
+    justify-self: end;
+    margin-right: .5rem;
+  }
+}
+
+/* Resize logo. 700px because that seemed to fit nicely. */
+@media (min-width: 700px) {
+  .logo {
+    max-width: 175px;
+  }
+}
+
+/* Resize logo */
+@media (min-width: 1280px) {
+  .logo {
+    max-width: 190px;
+  }
+}
+
+
+/*
+mobil:
+> f.o.m. 320
+Tablet:
+> f.o.m. 600
+PC
+> f.o.m. 1280
+*/

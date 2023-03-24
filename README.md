@@ -1,4 +1,3 @@
 # TorsteinOvstedal.github.io
 
-
-https://torsteinovstedal.github.io/
+University assignment; Responsive HTML and CSS.
